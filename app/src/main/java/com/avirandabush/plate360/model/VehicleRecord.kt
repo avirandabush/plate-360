@@ -1,0 +1,28 @@
+package com.avirandabush.plate360.model
+
+data class VehicleRecord(
+    val mispar_rechev: String?,
+    val tozeret_cd: String?,
+    val tozeret_nm: String?,
+    val sug_degem_nm: String?,
+    val sug_degem: String?,
+    val degem_cd: String?,
+    val degem_nm: String?,
+    val ramat_gimur: String?,
+    val ramat_eivzur_betihuty: String?,
+    val kvutzat_zihum: String?,
+    val shnat_yitzur: String?,
+    val degem_manoa: String?,
+    val mivchan_acharon_dt: String?,
+    val tokef_dt: String?,
+    val baalut: String?,
+    val misgeret: String?,
+    val tzeva_cd: String?,
+    val tzeva_rechev: String?,
+    val zmig_kidmi: String?,
+    val zmig_ahori: String?,
+    val sug_delek_nm: String?,
+    val horaat_rishum: String?,
+    val moed_aliya_lakvish: String?,
+    val kinuy_mishari: String?
+)
