@@ -5,35 +5,57 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0D1B2A"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#1F1F1F"
         android:orientation="vertical"
+        android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="16dp">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/input_plate"
-            android:hint="Enter car number"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_search"
-            android:text="search"/>
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Plate360"
+            android:textAlignment="center"
+            android:textColor="#D0CFCF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/input_plate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="16dp"
+            android:layout_margin="24dp"
+            android:hint="Enter car number"
+            android:textColor="#D0CFCF"
+            android:textColorHint="#7A7979"
+            android:inputType="number"
+            android:imeOptions="actionSearch"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="52dp"
+            android:background="@drawable/rounded_background"
+            android:text="search"
+            android:layout_gravity="center_horizontal"
+            android:textColor="#1F1F1F" />
+
+        <TextView
             android:id="@+id/text_result"
-            android:paddingTop="16dp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp" />
 
     </LinearLayout>
 
