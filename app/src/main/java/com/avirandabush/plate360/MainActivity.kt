@@ -1,6 +1,8 @@
 package com.avirandabush.plate360
 
 import android.os.Bundle
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -38,13 +40,33 @@ class MainActivity : AppCompatActivity() {
         textResult = findViewById(R.id.text_result)
 
         btnSearch.setOnClickListener {
-            val plate = inputPlate.text.toString().trim()
-            if (plate.isNotEmpty()) {
-                searchCar(plate)
+            handleSearch()
+        }
+
+        // לחיצה על חיפוש במקלדת
+        inputPlate.setOnEditorActionListener { _, actionId, _ ->
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                handleSearch()
+                true
             } else {
-                textResult.text = "אנא הזן מספר רכב"
+                false
             }
         }
+    }
+
+    private fun handleSearch() {
+        val plate = inputPlate.text.toString().trim()
+        if (plate.isNotEmpty()) {
+            searchCar(plate)
+            hideKeyboard()
+        } else {
+            textResult.text = "אנא הזן מספר רכב"
+        }
+    }
+
+    private fun hideKeyboard() {
+        val imm = getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(inputPlate.windowToken, 0)
     }
 
     private fun searchCar(plate: String) {
