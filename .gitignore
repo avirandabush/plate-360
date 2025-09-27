@@ -25,3 +25,34 @@ replay_pid*
 
 # Kotlin Gradle plugin data, see https://kotlinlang.org/docs/whatsnew20.html#new-directory-for-kotlin-data-in-gradle-projects
 .kotlin/
+
+# Gradle build files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Android Studio files
+.idea/
+*.iml
+*.hprof
+
+# Generated files
+gen/
+
+# External native build folder generated in Android Studio 2.2+
+.cxx/
+
+# Gradle wrapper
+gradle-wrapper.jar
+gradle-wrapper.properties
+
+# User-specific files
+*.swp
+*.swo
+*.tmp
+
+# Crash logs
+hs_err_pid*
+replay_pid*
