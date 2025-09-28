@@ -1,7 +1,6 @@
 package com.avirandabush.plate360.network
 
-import com.avirandabush.plate360.model.VehicleRecord
-import com.avirandabush.plate360.model.VehicleHistory
+import com.avirandabush.plate360.model.*
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -20,4 +19,3 @@ interface GovApi {
         @Query("q") query: String
     ): Call<ApiResponse<VehicleHistory>>
 }
-

@@ -1,4 +1,4 @@
-package com.avirandabush.plate360.network
+package com.avirandabush.plate360.model
 
 data class ApiResponse<T>(
     val result: ResultData<T>

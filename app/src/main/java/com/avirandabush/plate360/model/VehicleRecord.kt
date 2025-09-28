@@ -24,5 +24,5 @@ data class VehicleRecord(
     val sug_delek_nm: String?,
     val horaat_rishum: String?,
     val moed_aliya_lakvish: String?,
-    val kinuy_mishari: String?
+    val kinuy_mishari: String?,
 )
