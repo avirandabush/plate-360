@@ -73,6 +73,13 @@ class MainActivity : AppCompatActivity() {
                 val history = viewModel.history.value
                 val resultScreen = ResultScreen.newInstance(record, history)
                 resultScreen.show(supportFragmentManager, "ResultScreen")
+
+                supportFragmentManager.setFragmentResultListener(
+                    "RESULT_SCREEN_CLOSED",
+                    this
+                ) { _, _ ->
+                    inputPlate.text.clear()
+                }
             }
         }
 

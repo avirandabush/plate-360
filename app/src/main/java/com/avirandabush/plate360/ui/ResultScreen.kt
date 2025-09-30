@@ -32,6 +32,11 @@ class ResultScreen : BottomSheetDialogFragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        parentFragmentManager.setFragmentResult("RESULT_SCREEN_CLOSED", Bundle())
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
