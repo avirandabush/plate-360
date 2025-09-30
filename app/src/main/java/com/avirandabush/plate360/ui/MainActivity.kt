@@ -62,28 +62,14 @@ class MainActivity : AppCompatActivity() {
     private fun observeViewModel() {
         viewModel.vehicle.observe(this) { record ->
             if (record != null) {
-                val resultScreen = ResultScreen()
+                val history = viewModel.history.value
+                val resultScreen = ResultScreen.newInstance(record, history)
                 resultScreen.show(supportFragmentManager, "ResultScreen")
-//                textResult.text = """
-//                    יצרן: ${record.tozeret_nm}
-//                    דגם: ${record.sug_degem_nm}
-//                    שנת ייצור: ${record.shnat_yitzur}
-//                    סוג דלק: ${record.sug_delek_nm}
-//                """.trimIndent()
-            }
-        }
-
-        viewModel.history.observe(this) { history ->
-            history?.let {
-                textResult.append(
-                    "\n\nהיסטוריה:\nק״מ אחרון: ${it.kilometer_test_aharon ?: "לא זמין"}\n" +
-                            "רישום ראשון: ${it.rishum_rishon_dt ?: "לא זמין"}"
-                )
             }
         }
 
         viewModel.error.observe(this) { errorMsg ->
-            textResult.append("\n\n$errorMsg")
+            textResult.text = errorMsg
         }
     }
 
