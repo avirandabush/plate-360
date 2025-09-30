@@ -1,10 +1,12 @@
 package com.avirandabush.plate360.ui
 
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -18,12 +20,14 @@ class MainActivity : AppCompatActivity() {
     private lateinit var inputPlate: EditText
     private lateinit var btnSearch: Button
     private lateinit var textResult: TextView
+    private lateinit var progressLoader: ProgressBar
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+        progressLoader = findViewById(R.id.progress_loader)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -60,6 +64,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun observeViewModel() {
+        viewModel.loading.observe(this) { isLoading ->
+            progressLoader.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+
         viewModel.vehicle.observe(this) { record ->
             if (record != null) {
                 val history = viewModel.history.value
